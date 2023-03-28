@@ -1,14 +1,17 @@
-.header-content{
-    min-height: 20vh;
-    background: linear-gradient(rgba(141, 39, 174, 0.3), rgba(141, 39, 174, 0.5));
-    flex-direction: column;
+.header-content img {
+  width: 6rem;
+  margin-left: 0.5rem;
 }
-.header-title{
-    font-size: 4.2rem;
+.header-title {
+  font-size: 4.2rem;
 }
-.header-text{
-    margin-top: -1.8rem;
-    margin-bottom: 2.8rem;
-    opacity: 0.8;
-    max-width: 770px;
+.header-text {
+  margin-top: -1.8rem;
+  margin-bottom: 2.8rem;
+  opacity: 0.8;
+  max-width: 48rem;
+}
+.holder {
+  background-color: var(--white-color);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
 }

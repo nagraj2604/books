@@ -1,19 +1,17 @@
-import React from 'react';
-import Navbar from "../Navbar/Navbar";
-import SearchForm from "../SearchForm/SearchForm";
+import React from "react";
+import headerLogo from "../../images/header-logo.png";
 import "./Header.css";
 
 const Header = () => {
   return (
-    <div className='holder'>
-        <header className='header'>
-            <Navbar />
-            <div className='header-content flex flex-c'>
-                <SearchForm />
-            </div>
-        </header>
+    <div className="holder">
+      <header className="header">
+        <div className="header-content flex flex-s">
+          <img src={headerLogo} alt="kaplan" />
+        </div>
+      </header>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

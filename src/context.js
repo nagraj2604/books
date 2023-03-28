@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useCallback } from "react";
-import axios from "axios";
-const URL =
-  "https://www.googleapis.com/books/v1/volumes?q=kaplan%20test%20prep";
+import { getBooks } from "./services/api.js";
+import coverImg from "./images/cover_not_found.jpg";
+
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -14,9 +14,9 @@ const AppProvider = ({ children }) => {
   const fetchBooks = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await axios.get(URL);
-      const data = await response.data.items;
-      console.log(data);
+      const response = await getBooks();
+      console.log(response);
+      const data = response.data.items;
       if (data) {
         const newBooks = data
           .filter((book) => {
@@ -44,8 +44,8 @@ const AppProvider = ({ children }) => {
 
             return {
               id: id,
-              author: authors[0],
-              cover_img: imageLinks.thumbnail,
+              author: authors?.[0] ?? "N/A",
+              cover_img: imageLinks?.thumbnail ?? coverImg,
               edition_count: publisher,
               first_publish_year: publishedDate,
               title: title,
@@ -53,7 +53,6 @@ const AppProvider = ({ children }) => {
               pageCount: pageCount,
             };
           });
-        console.log(newBooks);
         setBooks(newBooks);
 
         if (newBooks.length >= 1) {
@@ -76,6 +75,7 @@ const AppProvider = ({ children }) => {
     fetchBooks();
   }, [fetchBooks]);
 
+  console.log(books);
   return (
     <AppContext.Provider
       value={{
