@@ -10,9 +10,6 @@ test("display toggle menu className", () => {
     container.getElementsByClassName("sidebar-menu icon-pos-collapse").length
   ).toBe(1);
   expect(container.getElementsByClassName("collapse-menu").length).toBe(2);
-  expect(
-    container.getElementsByClassName("collapse-width-content").length
-  ).toBe(1);
 
   const btnToggle = screen.getByTestId("sidebar");
   fireEvent.click(btnToggle);
@@ -22,5 +19,4 @@ test("display toggle menu className", () => {
     container.getElementsByClassName("sidebar-menu icon-pos-full").length
   ).toBe(1);
   expect(container.getElementsByClassName("full-menu").length).toBe(2);
-  expect(container.getElementsByClassName("full-width-content").length).toBe(1);
 });

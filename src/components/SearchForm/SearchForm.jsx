@@ -28,20 +28,20 @@ const SearchForm = () => {
       <div className="container">
         <div className="search-form-content">
           <form className="search-form" onSubmit={handleSubmit}>
-            <div className="search-form-elem flex flex-sb bg-white">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Type here..."
-                ref={searchText}
-              />
+            <div className="search-form-elem flex">
               <button
                 type="submit"
                 className="flex flex-c"
                 onClick={handleSubmit}
               >
-                <FaSearch className="text-purple" size={32} />
+                <FaSearch className="text-light-black" size={24} />
               </button>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search"
+                ref={searchText}
+              />
             </div>
           </form>
         </div>

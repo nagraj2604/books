@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [resultTitle, setResultTitle] = useState("All Books");
+  const [resultTitle, setResultTitle] = useState("");
 
   const fetchBooks = useCallback(async () => {
     setLoading(true);
@@ -21,14 +21,15 @@ const AppProvider = ({ children }) => {
         const newBooks = data
           .filter((book) => {
             if (searchTerm === "") {
-              return book;
+              return true;
             } else if (
               book.volumeInfo.title
                 .toLowerCase()
                 .includes(searchTerm.toLowerCase())
             ) {
-              return book;
+              return true;
             }
+            return false;
           })
           .map((bookSingle) => {
             const { id } = bookSingle;
@@ -55,7 +56,9 @@ const AppProvider = ({ children }) => {
           });
         setBooks(newBooks);
 
-        if (newBooks.length >= 1) {
+        if (newBooks.length === 10) {
+          setResultTitle("All Books");
+        } else if (newBooks.length >= 1) {
           setResultTitle("Your Search Result");
         } else {
           setResultTitle("No Search Result Found!");

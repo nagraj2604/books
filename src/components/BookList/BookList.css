@@ -9,13 +9,14 @@
 }
 .book-item {
   margin: 1rem;
+  margin-right: 2.3rem;
   padding: 1rem;
   border-radius: 0.25rem;
   background-color: var(--white-color);
   box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 15px 0px;
-  border-left: 0.25rem solid hsl(44, 96%, 53%);
+  border-left: 0.35rem solid hsl(44, 96%, 53%);
   transition: var(--transition);
-  width: 42rem;
+  width: 40rem;
   display: flex;
 }
 .book-item:hover {
